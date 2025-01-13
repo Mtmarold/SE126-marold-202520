@@ -14,23 +14,24 @@
 #first function for number of people attending meeting and maximum capacity of room.
 def difference(people, max_cap):
     '''This function will ask the user to input the number of people attending the meeting and the maximum capacity of the room and tell them if they are following fire laws or not and tell them how many people need to be excluded or how many more people can enter'''
-    if people <= max_cap:
-        remaining_cap = max_cap - people
-        print(f"Its legal to hold this meeting, The remaining people that can enter this room is {remaining_cap}")
-        return remaining_cap
-    else:
-        remove_ppl = people - max_cap
-        print(f"please exclude {remove_ppl} more people to legally hold this meeting")
-        return remove_ppl
+ 
+    diff = max_cap - people
+    return diff
 
 
 
 
 #fucntion to ask user if they want to input another rooms attendance
-def decision():
+def decision(ans):
     '''This function asks the user if they want to enter another room's attendance information.'''
-    response = input("Would you like to enter another room's attendance information? [y/n] ").lower()
-    return response
+    #ans = input("Would you like to enter another room's attendance information? [y/n] ").lower()
+
+    while ans != "y" and ans != "n":
+        print("****Invalid Entry please try again!****")
+        ans = input("Would you like to enter another room's attendance information? [y/n] ").lower()
+    else:
+        
+        return ans
 
 
 #main program code ----------------
@@ -40,14 +41,19 @@ while response == "y":
     max_cap = int(input("Enter the maximum room capacity: "))
     people = int(input("Enter the amount of people attending this meeting: "))
     
-    
+    if people <= max_cap:
+        diff = max_cap - people
+        print(f"Its legal to hold this meeting, The remaining people that can enter this room is {diff}")
+    else:
+        diff = people - max_cap
+        print(f"please exclude {diff} more people to legally hold this meeting")
     #call the difference function
     difference(people, max_cap)
     
     #ask if they want to enter another roooms info using the decision function
-    response = decision()
-    if response == "n":
-        print("Thank you for using my program, goodbye :]")
+    ans = input("Would you like to enter another room's attendance information? [y/n] ").lower()
+    response = decision(ans)
+print("Thank you for using my program, goodbye :]")
 
 
 
