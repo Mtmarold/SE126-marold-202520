@@ -1,9 +1,9 @@
 #Matthew Marold
 #in class lab text file handling
-#SE126
+#SE126 w2d2
 #1/13/25
 
-#Program Prompt:
+#Program Prompt:Write a program that displays all rooms that are over the maximum limit of people and the number of people that have to be notified that they will have to be put on the wait list. After the file is completely processed the program should display the number of records processed and the number of rooms that are over the limit.
 
 
 #Variable Dictionary:
