@@ -7,6 +7,17 @@
 
 
 #Variable Dictionary:
+#total_records - number of records in the file
+#rooms_over - rooms over capacity limit
+#room - room name
+#max - max capacity of room
+#ppl - number of ppl in the room
+
+
+
+
+
+
 def difference(people,capacity):
     '''This function is passed 2 values and returns the difference between them'''
     diff = capacity - people
