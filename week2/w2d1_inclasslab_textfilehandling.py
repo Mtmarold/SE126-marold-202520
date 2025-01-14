@@ -43,7 +43,7 @@ with open("text files/classLab2.csv") as csvfile:
             rooms_over += 1
             print(f"{room:20}\t {max:5}\t {ppl:5}\t {abs(remaining):5}")
 
-        total_records += 1
+        
     print(f"There are total number of {total_records} records processed and {rooms_over} rooms are over the limit")
             
 
