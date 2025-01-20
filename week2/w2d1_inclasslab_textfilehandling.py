@@ -30,7 +30,7 @@ rooms_over = 0
 print(f"\n {'Room':20}      {'Max':5}   {'PPL':5}    {'Over'}")
 print("-------------------------------------------------")
 
-with open("text files/classLab2.csv") as csvfile:
+with open("text_files/classLab2.csv") as csvfile:
     #indent
     #processor read file data
     file = csv.reader(csvfile)
