@@ -23,7 +23,8 @@ import csv
 #functions -------
 
 #------ MAIN PROGRAM CODE BELOW ------
-
+replaceD = 0
+replaceL = 0
 total_records = 0
 type = []
 brand = []
@@ -35,8 +36,7 @@ hdd2 = []
 os = []
 year = []
 #------Connected to File--------
-#header
-print(f"\n{'Type':10}{'Brand':10}{'CPU':10}{'RAM':5}{'1st Disk':10}{'Num HDD':10}{'2nd Disk':10}{'OS':5}{'YR':5}")
+#print(f"\n{'Type':10}{'Brand':10}{'CPU':10}{'RAM':5}{'1st Disk':10}{'Num HDD':10}{'2nd Disk':10}{'OS':5}{'YR':5}")
 print("--------------------------------------------------------------------------------------------")
 with open("text_files/filehandling.csv") as csvfile:
     file = csv.reader(csvfile)
@@ -50,19 +50,9 @@ with open("text_files/filehandling.csv") as csvfile:
         #
 
         type.append(rec[0])
-        if type == "D":
-            type = "Desktop"
-        elif type == "L":
-            type = "Laptop"
 
 
         brand.append(rec[1])
-        if brand == "DL":
-            brand = "Dell"
-        elif brand == "HP":
-            brand = "HP"
-        elif brand == "GW":
-            brand = "Gateway"
         
 
 
@@ -74,30 +64,28 @@ with open("text_files/filehandling.csv") as csvfile:
 
         numhdd.append(rec[5])
 
-        replaceD = 0
-        replaceL = 0
-        if numhdd == "1":
+        if rec[5] == "1":
             second_drive = " "
             os.append(rec[6])
             year.append(rec[7])
-        elif numhdd == "2":
+        elif rec[5] == "2":
             hdd2.append(rec[6])
             os.append(rec[7])
             year.append(rec[8])
-        for index in range (0, len(year)): 
-            if year >= 16 and type == "Desktop":
-                replace = int(2000)
-            elif year >= 16 and type == "Laptop":
-                replace = int(1500)
-            if type == "Desktop":
-                replaceD += int(2000)
-            elif type == "Laptop":
-                replaceL += int(2000)
-        #display list output
-    #print(f"{type:10}{brand:10}{processor:10}{ram:5}{hdd1:10}{numhdd:10}{second_drive:10}{os:5}{year:5}")
-    print(f"To replace 8 it will cost: ${replaceD}")
-    print(f"To Replace 2 it will cost: ${replaceL}")
-print("-------------------------------------------------------------------------------------------")
-print(f"\nTotal records processed: {total_records}")
+    for index in range (0, len(year)): 
+        if year[index] <= "16" and type[index] == "D":
+            replaceD += 1
+        elif year[index] <= "16" and type[index] == "L":
+            replaceL += 1
+        
+    rep_desktop = replaceD * 2000
+    rep_laptop = replaceL * 1500
 
+        #display list output
+    #print(f"{type[index]:10}{brand[index]:10}{processor[index]:10}{ram[index]:5}{hdd1[index]:10}{numhdd[index]:10}{hdd2[index]:10}{os[index]:5}{year[index]:5}")
+print("-------------------------------------------------------------------------------------------")
+print(f"To replace {replaceD} Desktops it will cost: ${rep_desktop}")
+print(f"To Replace {replaceL} Laptops it will cost: ${rep_laptop}")
+print(f"\nTotal records processed: {total_records}")
+print("-------------------------------------------------------------------------------------------")
 print("Thank you for using my program, goodbye :]")
