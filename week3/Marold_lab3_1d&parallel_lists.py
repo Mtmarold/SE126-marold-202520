@@ -21,9 +21,10 @@ import csv
 #age = age
 #voted --- amount of people who voted
 #idNum --  Identification number
-#not_eligible_to_register
-#registered_didnt_vote
-#reg_voted
+#not_eligible_to_register - not old enough to register
+#registered_didnt_vote - registered to vote but didnt actually vote
+#reg_voted - user registered AND voted
+#old_enough_not_reg - old enough to register but didnt register
 
 
 #------MAIN CODE BELOW-------------------
@@ -53,7 +54,7 @@ with open ("text_files/voters_202040.csv") as csvfile:
         #header    
     print(f"{'ID Number':10}{'Age':3}   {'Registered':5}    {'Voted':6}")
     print("-------------------------------------------------")
-    # Process and display each record
+    # process and display each record
     for index in range(len(idnum)):
         if int(age[index]) < 18:
             not_eligible_to_register += 1   
@@ -63,6 +64,7 @@ with open ("text_files/voters_202040.csv") as csvfile:
             registered_didnt_vote += 1
         elif registered[index] == "Y" and voted[index] == "Y":
             reg_voted += 1
+        #output lists
         print(f"{idnum[index]:<10}{age[index]:<5}    {registered[index]:5}       {voted[index]:<6}")
 #output results 
 print("-------------------------------------------------")
