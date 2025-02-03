@@ -7,7 +7,7 @@
 import random
 import csv
 
-# House to Department Mapping
+# House to Department
 house_to_department = {
     'House Stark': 'Research & Dev.',
     'House Targaryen': 'Marketing',
@@ -93,4 +93,4 @@ for dept in departments:
         department_counts[dept] = 1
 
 for dept, count in department_counts.items():
-    print(f"{dept}: {count} employee's")
+    print(f"{dept}: {count} employees")
