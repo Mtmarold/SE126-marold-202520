@@ -37,7 +37,6 @@ os = []
 year = []
 #------Connected to File--------
 #print(f"\n{'Type':10}{'Brand':10}{'CPU':10}{'RAM':5}{'1st Disk':10}{'Num HDD':10}{'2nd Disk':10}{'OS':5}{'YR':5}")
-print("--------------------------------------------------------------------------------------------")
 with open("text_files/filehandling.csv") as csvfile:
     file = csv.reader(csvfile)
     for rec in file:
@@ -47,22 +46,22 @@ with open("text_files/filehandling.csv") as csvfile:
 
     #allow processor to read the file data
 
-        #
+        #lists
 
         type.append(rec[0])
 
 
-        brand.append(rec[1])
+        brand.append(rec[1]) 
         
 
 
-        processor.append(rec[2])
+        processor.append(rec[2]) #amd took over
 
-        ram.append(rec[3])
+        ram.append(rec[3]) #16 gb ddr 5 or else
 
-        hdd1.append(rec[4])
+        hdd1.append(rec[4]) #ssd please
 
-        numhdd.append(rec[5])
+        numhdd.append(rec[5]) #if u dont have 2 wyd bro
 
         if rec[5] == "1":
             second_drive = " "
