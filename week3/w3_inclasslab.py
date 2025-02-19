@@ -84,17 +84,20 @@ with open("text_files/filehandling.csv") as csvfile:
             hdd2.append(rec[6])
             os.append(rec[7])
             year.append(rec[8])
-        for index in range (0, len(year)): 
-            if year >= 16 and type == "Desktop":
-                replace = int(2000)
-            elif year >= 16 and type == "Laptop":
-                replace = int(1500)
-            if type == "Desktop":
-                replaceD += int(2000)
-            elif type == "Laptop":
-                replaceL += int(2000)
+    for index in range (0, len(year)): 
+        if year[index] <= 16 and type[index] == "Desktop":
+            replaceD += 1
+            
+        elif year[index] <= 16 and type[index] == "Laptop":
+            replaceL += 1
+            #if type[index] == "Desktop":
+                #replaceD += int(2000)
+            #elif type[index] == "Laptop":
+                #replaceL += int(2000)
         #display list output
     #print(f"{type:10}{brand:10}{processor:10}{ram:5}{hdd1:10}{numhdd:10}{second_drive:10}{os:5}{year:5}")
+    rep_cost_d = replaceD * 2000
+    rep_cost_l = replaceL * 1500
     print(f"To replace 8 it will cost: ${replaceD}")
     print(f"To Replace 2 it will cost: ${replaceL}")
 print("-------------------------------------------------------------------------------------------")
