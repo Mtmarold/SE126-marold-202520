@@ -126,7 +126,5 @@ while continue_reserving == 'y':
 
     # Ask if the user wants to continue or stop
     continue_reserving = ask_continue()
-
-display_seating(seating_chart)
 print("\nReservation process ended.")
 print("\n Thank you for using my program :] goodbye!")
