@@ -5,8 +5,6 @@
 
 
 #imports
-import csv
-import random
 
 
 
@@ -115,6 +113,7 @@ def reserve_seat(seating):
     else:
         seating[row_num][seat_index] = 'X'  # Mark seat as reserved
         print(f"Seat {seat} has been successfully reserved.")
+        display_seating(seating)
 
 
 
