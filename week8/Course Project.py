@@ -26,36 +26,29 @@ def loadDeck(filename): #filename represents the path of the file being imported
             value = rec[0]
             suit = rec[1]
             color = rec[2]
-            numValue = int(rec[3])
-            deck.append((value, suit, color, numValue))
+            deck.append((value, suit, color))
     random.shuffle(deck)
     return deck 
        
 
-def deckCreate(): 
-    colors = ["Red", "Black"]
-    suits = ["Hearts", "Diamonds", "Club", "Spade"]
+def deckCreate():
     scoreValue = []
     for n in range(2,11): 
         scoreValue.append((str(n) , n))
-    cardFace = ["Jack", "Queen", "King"]
-    for face in cardFace: 
-        scoreValue((face,10))
-    scoreValue.append(("Ace", 11))
-    deck = []
-    for suit in suits: 
-        color = "Red" if suit in ["Hearts", "Diamonds"] else "Black" 
-        for value, numValue in value:  
-            deck.append((scoreValue, suit, color, numValue))
-    deck *= 4 
+    if value == ("Jack", "Queen", "King"):
+        value = 10
+    elif value == "Ace":
+        value = 11
+    elif calcScore() > 21 and value == "Ace":
+        value = 1
+    else:
+        value == value 
     random.shuffle(deck)
     return deck 
 
 def calcScore(hand):
-    total = sum(card[3] for card in hand)
-    if total > 21 and any(card[1] == 11 for card in hand): 
-        total -= 10 
-    return total 
+    deck = sum(deckCreate()) for value in hand
+    return deck, value 
 
 def playBlackjack(deck, playerHand, dealerHand, balance, earnings): 
     print(f"Your hand: {playerHand} | Score: {calcScore(playerHand)}")
