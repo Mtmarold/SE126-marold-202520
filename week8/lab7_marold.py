@@ -6,7 +6,22 @@
 #---Imports ---
 import csv
 
-#program prompt -- 
+#program prompt -- #Build a mini programming dictionary a user can search through and ad to using the words.csv file:
+#words.csv fields
+#Field # File Data
+#0 Word (unique)
+#1 Definition
+#Access the words.csv file and store the data to a dictionary, where each word in the file is a key of the dictionary and
+#the value stored to each key is the word’s corresponding definition. Then, create a repeatable program that allows a
+#user to interact with the dictionary based on the following menu:
+#My Programming Dictionary Menu
+#1. Show all words – Show all words and their definitions stored to the dictionary
+#2. Search for a word – Allow the user to enter a word and if it is in the dictionary, show its definition (tell the user if
+#the word is not in the dictionary)
+#3. Add a word – Allow a user to add a word and its definition to the dictionary if it does not already exist
+#4. EXIT
+#The program should not be case sensitive for user input, and the user should only be able to quit when they have
+#selected menu option number 4.
 
 #--- Variable Dictionary ---
 # Function to load words from the CSV file into a dictionary
@@ -40,7 +55,7 @@ def display_menu():
     print("3. Add a word")
     print("4. EXIT")
 
-
+#function to search a word in the dictionary
 def search_word(word_dict):
     word = input("Enter the word to search for: ").strip().lower()
     if word in word_dict:
@@ -49,7 +64,7 @@ def search_word(word_dict):
         print("-" * 80)
     else:
         print("Word not found!")
-
+#Function to add a word to the dictionary
 def add_word(word_dict):
     word = input("Enter The word You would like to add: ").strip().lower()
     if word in word_dict:
@@ -62,11 +77,11 @@ def add_word(word_dict):
         print(f"The word and definition have been added to the dictionary: {word.capitalize()}: {word_dict[word]}")
         print("-" * 80)
 #--- MAIN CODE BELOW ---
-
+#initalizing file location
 file_path = "text_files/words.csv"
 dictionary = load_dict(file_path)
 answer = "y"
-
+#main program loop
 while answer == "y":
     display_menu()
 
